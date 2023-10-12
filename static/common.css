@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+}
+
+* {
+    font-family: calibri;
+}
+
+nav {
+    --nav-size: 50px;
+    height: var(--nav-size);
+    /* background-color: greenyellow; */
+    display: flex;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#hmbgr {
+    --size : 35px;
+
+    height: var(--size);
+    margin: calc(var(--nav-size) / 2 - var(--size) / 2) 10px;
+    /* background-color: red; */
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    position: relative;
+
+    --line-width: 23px;
+    --gap : 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#hmbgr > hr {
+    width: var(--line-width);
+    border: 0;
+    height: 2px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 0;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - var(--line-width) / 2);
+}
+
+#hmbgr > hr:nth-child(1){
+    top: calc(50% - 1px - var(--gap));
+    width: calc(var(--line-width) - 0.2 * var(--line-width));
+}
+
+#hmbgr > hr:nth-child(3){
+    top: calc(50% - 1px + var(--gap));
+}
+
+nav > h1 {
+    outline: 1px solid;
+    height: var(--nav-size);
+}

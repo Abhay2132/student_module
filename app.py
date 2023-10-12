@@ -10,6 +10,10 @@ def login():
 def panel():
     return render_template('gallery.html')
 
+@app.route("/upload")
+def upload():
+    return render_template('upload.html')
+
 @app.route("/login", methods=["post"])
 def _login():
     return "{ok:false}"
