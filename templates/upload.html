@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload</title>
     <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/upload.css">
 </head>
 <body>
     <nav>
@@ -24,7 +25,7 @@
                 <img src="/static/icons/upload.svg" id="upload-icon">
                 <div>Click to Upload</div>
             </label>
-            <input id='file-upload' type="file" class="d-no" required multiple />
+            <input accept=".jpg,.png" name="imgs" id='file-upload' type="file" class="d-no" required multiple />
         </form>
     </main>
 </body>

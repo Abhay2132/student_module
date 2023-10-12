@@ -1,0 +1,16 @@
+
+form label {
+    /* background: red; */
+    border: 1px dashed;
+    display: block;
+    box-sizing: border-box;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgba(200, 200, 255, 0.1);
+    text-align: center;
+    padding: 20px;
+}
+
+form > label > img{
+    height: 90px;
+}

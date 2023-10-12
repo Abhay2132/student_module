@@ -1,8 +1,7 @@
 from flask import Flask , render_template, request, flash, redirect
-from werkzeug.utils import secure_filename
 from pathlib import Path
 import os
-import hlpr
+from hlpr import saveImg
 
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
 Path(UPLOAD_FOLDER).mkdir(exist_ok=True)
@@ -30,17 +29,20 @@ def upload():
 def _login():
     return "{ok:false}"
 
-@app.route("/upload", methods=["post"])
+@app.route("/_upload", methods=["post"])
 def _upload():
-    if 'file' not in request.files:
-        flash('No file part')
-        return redirect(request.url)
-    file = request.files['file']
-    print("file : ", file)
-    if file.filename == '':
-        flash('No selected file')
-        return redirect(request.url)
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return redirect(url_for('download_file', name=filename))
+    fieldName = 'imgs'
+    print("/upload")
+    if fieldName not in request.files:
+        print("error : no file in body")
+        return "{error : 'no file in body'}"
+    files = request.files.getlist(fieldName)
+    # print("files", request.files.getlist(fieldName))
+    
+    lastRes = {}
+    for file in files :
+        lastRes = saveImg(file, UPLOAD_FOLDER=app.config['UPLOAD_FOLDER'])
+        if 'error' in lastRes.keys() : 
+            return lastRes["error"]
+    
+    return lastRes['status']
