@@ -53,6 +53,50 @@ nav {
 }
 
 nav > h1 {
-    outline: 1px solid;
+    /* outline: 1px solid; */
     height: var(--nav-size);
+    margin: 0;
+    line-height: var(--nav-size);
+    padding-left: 20px;
+}
+
+nav > #logout {
+    --m: 10px;
+    margin: var(--m) var(--m) var(--m) auto;
+    /* outline: 1px solid; */
+}
+
+nav > #logout > img {
+    height: 100%;
+}
+.d-no{
+    display: none;
+}
+
+.scale-0{
+    transform : scale(0);
+}
+
+form label {
+    /* background: red; */
+    border: 1px dashed;
+    display: block;
+    box-sizing: border-box;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgba(200, 200, 255, 0.1);
+    text-align: center;
+    padding: 20px;
+}
+
+form > label > img{
+    height: 90px;
+}
+
+main{
+    --w: min(98%, 500px);
+    position: relative;
+    left: calc(50% - var(--w) /2 );
+    width: var(--w);
+    margin: 0 1%;
 }
